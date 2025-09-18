@@ -32,7 +32,7 @@ const WeightLossLanding = () => {
 
   const testimonials = [
     {
-      text: "I lost 6 lbs in the first week — life changing!",
+      text: "I lost 6 lbs in the first week, life changing!",
       author: "Mary",
       rating: 5,
       background: "bg-gradient-to-br from-medical-blue-light/20 to-trust-green-light/20"
@@ -99,7 +99,7 @@ const WeightLossLanding = () => {
             className={`fade-in-up ${isAnimated('hero-content') ? 'animate' : ''}`}
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Lose Weight from Home —<br />
+              Lose Weight from Home<br />
               <span className="text-accent-orange">No Diets, No Gym Required</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -266,7 +266,7 @@ const WeightLossLanding = () => {
                   "{testimonial.text}"
                 </p>
                 <p className="text-muted-foreground font-medium">
-                  — {testimonial.author}
+                  {testimonial.author}
                 </p>
               </Card>
             ))}
