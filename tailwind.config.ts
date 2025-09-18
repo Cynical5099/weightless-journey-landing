@@ -14,6 +14,23 @@ export default {
     },
     extend: {
       colors: {
+        // Medical Theme Colors
+        'medical-blue': {
+          DEFAULT: 'hsl(var(--medical-blue))',
+          light: 'hsl(var(--medical-blue-light))',
+          dark: 'hsl(var(--medical-blue-dark))',
+        },
+        'trust-green': {
+          DEFAULT: 'hsl(var(--trust-green))',
+          light: 'hsl(var(--trust-green-light))',
+          dark: 'hsl(var(--trust-green-dark))',
+        },
+        'accent-orange': {
+          DEFAULT: 'hsl(var(--accent-orange))',
+          light: 'hsl(var(--accent-orange-light))',
+        },
+        
+        // Design System Colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

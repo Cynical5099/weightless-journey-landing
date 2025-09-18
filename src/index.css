@@ -2,14 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Medical Weight Loss Landing Page Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Medical Trust Colors */
+    --background: 210 25% 98%;
+    --foreground: 210 30% 8%;
+    
+    /* Medical Blue Palette */
+    --medical-blue: 210 85% 45%;
+    --medical-blue-light: 210 85% 65%;
+    --medical-blue-dark: 210 85% 35%;
+    
+    /* Trust Green Palette */
+    --trust-green: 142 76% 36%;
+    --trust-green-light: 142 76% 56%;
+    --trust-green-dark: 142 76% 26%;
+    
+    /* Accent Colors */
+    --accent-orange: 25 95% 53%;
+    --accent-orange-light: 25 95% 73%;
+    
+    /* Medical Gradients */
+    --gradient-medical: linear-gradient(135deg, hsl(var(--medical-blue)), hsl(var(--trust-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--medical-blue) / 0.95), hsl(var(--trust-green) / 0.95));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--accent-orange)), hsl(var(--accent-orange-light)));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.9), hsl(210 25% 98%));
+    
+    /* Professional Shadows */
+    --shadow-medical: 0 10px 40px -10px hsl(var(--medical-blue) / 0.3);
+    --shadow-trust: 0 8px 30px -8px hsl(var(--trust-green) / 0.25);
+    --shadow-card: 0 4px 20px -4px hsl(210 30% 8% / 0.1);
+    --shadow-cta: 0 8px 25px -8px hsl(var(--accent-orange) / 0.4);
+    
+    /* Smooth Transitions */
+    --transition-medical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s ease-out;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -91,6 +120,80 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Medical Landing Page Components & Animations */
+@layer components {
+  /* CTA Button Variants */
+  .btn-medical-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-orange-light))]
+           text-white font-semibold py-4 px-8 rounded-xl
+           shadow-[var(--shadow-cta)] hover:shadow-[var(--shadow-cta)]
+           transform hover:scale-105 active:scale-95
+           transition-[var(--transition-medical)];
+  }
+  
+  .btn-medical-secondary {
+    @apply bg-gradient-to-r from-[hsl(var(--medical-blue))] to-[hsl(var(--medical-blue-light))]
+           text-white font-medium py-3 px-6 rounded-lg
+           shadow-[var(--shadow-medical)] hover:shadow-[var(--shadow-medical)]
+           transform hover:scale-105 active:scale-95
+           transition-[var(--transition-medical)];
+  }
+  
+  /* Card Components */
+  .card-medical {
+    @apply bg-[var(--gradient-card)] backdrop-blur-sm
+           rounded-2xl p-6 shadow-[var(--shadow-card)]
+           border border-white/20
+           transition-[var(--transition-smooth)];
+  }
+  
+  .card-testimonial {
+    @apply bg-white/90 backdrop-blur-sm rounded-xl p-6
+           shadow-[var(--shadow-card)] border border-white/30
+           transform hover:scale-105 transition-[var(--transition-medical)];
+  }
+  
+  /* Section Backgrounds */
+  .section-hero {
+    @apply bg-gradient-to-br from-[hsl(var(--medical-blue))] to-[hsl(var(--trust-green))]
+           relative overflow-hidden;
+  }
+  
+  .section-trust {
+    @apply bg-gradient-to-r from-[hsl(var(--background))] to-[hsl(210_25%_96%)]
+           relative;
+  }
+  
+  /* Animation Classes */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-[var(--transition-medical)]
+           [&.animate]:opacity-100 [&.animate]:translate-y-0;
+  }
+  
+  .fade-in-left {
+    @apply opacity-0 -translate-x-8 transition-[var(--transition-medical)]
+           [&.animate]:opacity-100 [&.animate]:translate-x-0;
+  }
+  
+  .fade-in-right {
+    @apply opacity-0 translate-x-8 transition-[var(--transition-medical)]
+           [&.animate]:opacity-100 [&.animate]:translate-x-0;
+  }
+  
+  /* Medical Icons */
+  .icon-medical {
+    @apply w-12 h-12 p-3 rounded-full
+           bg-gradient-to-br from-[hsl(var(--medical-blue-light))] to-[hsl(var(--medical-blue))]
+           text-white shadow-[var(--shadow-medical)];
+  }
+  
+  .icon-trust {
+    @apply w-12 h-12 p-3 rounded-full
+           bg-gradient-to-br from-[hsl(var(--trust-green-light))] to-[hsl(var(--trust-green))]
+           text-white shadow-[var(--shadow-trust)];
   }
 }
 
